@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Maurício Vieira – Especialista em Geração Distribuída e Consórcio Cunali Energia. Economize até 20% na sua conta de energia sem obras e sem investimento.">
+<meta name="keywords" content="geração distribuída, energia solar, consórcio cunali, economia energia, energia renovável, Campinas">
+<meta property="og:title" content="Maurício Vieira | Geração Distribuída & Cunali Energia">
+<meta property="og:description" content="Economize na sua conta de energia com soluções inteligentes em Geração Distribuída. Consulte agora.">
+<meta property="og:type" content="website">
+<title>Maurício Vieira | Geração Distribuída & Cunali Energia</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --sun: #F5A623;
+  --sun-light: #FFD166;
+  --green: #1A7A4A;
+  --green-light: #2DB370;
+  --dark: #0D1117;
+  --dark2: #161B22;
+  --dark3: #1F2937;
+  --gray: #6B7280;
+  --light: #F9FAFB;
+  --white: #FFFFFF;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --radius: 16px;
+  --shadow: 0 8px 40px rgba(0,0,0,0.12);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.18);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--dark);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ── TOP BAR ── */
+.topbar {
+  background: var(--dark);
+  padding: 10px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: #9CA3AF;
+}
+.topbar-left { display: flex; align-items: center; gap: 6px; }
+.topbar-left a {
+  color: #9CA3AF;
+  text-decoration: none;
+  display: flex; align-items: center; gap: 5px;
+  transition: color .2s;
+}
+.topbar-left a:hover { color: var(--sun); }
+.topbar-right { display: flex; align-items: center; gap: 12px; }
+.topbar-right a {
+  display: flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+  transition: background .2s, transform .2s;
+  text-decoration: none;
+}
+.topbar-right a:hover { background: var(--sun); transform: scale(1.1); }
+.topbar-right a svg { display: block; }
+
+/* ── NAVBAR ── */
+nav {
+  position: sticky; top: 0; z-index: 999;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 0 24px;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+.logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+.logo-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--sun), var(--green));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+}
+.logo-text { line-height: 1.2; }
+.logo-name { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--dark); }
+.logo-sub { font-size: 11px; color: var(--gray); letter-spacing: .5px; text-transform: uppercase; }
+
+.nav-links {
+  display: flex; gap: 8px; list-style: none;
+}
+.nav-links a {
+  text-decoration: none; color: var(--dark);
+  font-size: 14px; font-weight: 500;
+  padding: 8px 14px; border-radius: 8px;
+  transition: background .2s, color .2s;
+}
+.nav-links a:hover { background: rgba(245,166,35,0.1); color: var(--sun); }
+
+.nav-cta {
+  background: linear-gradient(135deg, var(--sun), #E8940A);
+  color: white !important; border-radius: 10px !important;
+  padding: 10px 20px !important;
+  box-shadow: 0 4px 14px rgba(245,166,35,0.35);
+}
+.nav-cta:hover { background: linear-gradient(135deg, #e09020, #cc8008) !important; color: white !important; }
+
+.hamburger {
+  display: none; flex-direction: column; cursor: pointer;
+  gap: 5px; padding: 6px;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--dark); border-radius: 2px;
+  transition: all .3s;
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+.mobile-menu {
+  display: none; flex-direction: column;
+  background: white; border-top: 1px solid rgba(0,0,0,0.08);
+  padding: 16px 24px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  text-decoration: none; color: var(--dark);
+  font-size: 15px; font-weight: 500;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.mobile-menu a:last-child { border: none; }
+
+/* ── HERO ── */
+#hero {
+  min-height: 92vh;
+  background: linear-gradient(135deg, #0D1117 0%, #1A2A1A 50%, #0D2010 100%);
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  padding: 80px 24px;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(245,166,35,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(26,122,74,0.15) 0%, transparent 60%);
+}
+.hero-sun {
+  position: absolute; right: -80px; top: -80px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,166,35,0.08) 0%, transparent 70%);
+  animation: pulse-sun 4s ease-in-out infinite;
+}
+@keyframes pulse-sun {
+  0%,100% { transform: scale(1); opacity: .6; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+.rays {
+  position: absolute; right: 60px; top: 40px;
+  width: 280px; height: 280px;
+}
+.ray {
+  position: absolute; top: 50%; left: 50%;
+  width: 2px; height: 100px; margin-left: -1px;
+  background: linear-gradient(to bottom, rgba(245,166,35,0.4), transparent);
+  transform-origin: top center;
+  border-radius: 2px;
+  animation: spin-slow 20s linear infinite;
+}
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+
+.hero-inner {
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  align-items: center; position: relative; z-index: 2;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(245,166,35,0.15); border: 1px solid rgba(245,166,35,0.3);
+  color: var(--sun-light); padding: 6px 14px; border-radius: 20px;
+  font-size: 12px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero-badge::before { content: '✦'; }
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  color: white; line-height: 1.15;
+  margin-bottom: 20px;
+}
+h1 span { color: var(--sun); }
+
+.hero-sub {
+  font-size: 17px; color: #B0B8C8;
+  line-height: 1.7; margin-bottom: 36px;
+  max-width: 480px;
+}
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 15px 28px; border-radius: 12px;
+  font-family: var(--font-body); font-size: 15px; font-weight: 600;
+  text-decoration: none; cursor: pointer; border: none;
+  transition: all .25s; white-space: nowrap;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  box-shadow: 0 6px 20px rgba(37,211,102,0.3);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(37,211,102,0.4); }
+.btn-secondary {
+  background: rgba(255,255,255,0.08);
+  color: white; border: 1px solid rgba(255,255,255,0.2);
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.15); transform: translateY(-2px); }
+
+.hero-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  margin-top: 48px;
+}
+.stat {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px; padding: 20px;
+  text-align: center;
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 2rem; font-weight: 900;
+  color: var(--sun);
+}
+.stat-label { font-size: 12px; color: #9CA3AF; margin-top: 4px; }
+
+/* hero visual side */
+.hero-visual {
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.solar-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 28px; padding: 48px 40px;
+  backdrop-filter: blur(20px);
+  text-align: center; position: relative;
+  overflow: hidden;
+}
+.solar-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--sun), var(--green-light), transparent);
+}
+.solar-icon { font-size: 80px; margin-bottom: 24px; display: block; line-height: 1; }
+.solar-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem; color: white; margin-bottom: 12px;
+}
+.solar-card p { font-size: 14px; color: #9CA3AF; line-height: 1.7; }
+.savings-badge {
+  margin-top: 28px;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, rgba(26,122,74,0.3), rgba(45,179,112,0.2));
+  border: 1px solid rgba(45,179,112,0.4);
+  color: #4ADE80; padding: 10px 20px; border-radius: 10px;
+  font-size: 14px; font-weight: 600;
+}
+.float-badge {
+  position: absolute; top: -20px; right: -20px;
+  background: var(--sun); color: white;
+  padding: 10px 16px; border-radius: 12px;
+  font-size: 12px; font-weight: 700;
+  box-shadow: 0 4px 20px rgba(245,166,35,0.5);
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+/* ── SECTIONS COMMON ── */
+section { padding: 96px 24px; }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(245,166,35,0.1); color: var(--sun);
+  padding: 5px 12px; border-radius: 20px;
+  font-size: 12px; font-weight: 600; letter-spacing: .5px;
+  text-transform: uppercase; margin-bottom: 16px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700; color: var(--dark);
+  line-height: 1.2; margin-bottom: 16px;
+}
+.section-title span { color: var(--green); }
+.section-sub {
+  font-size: 17px; color: var(--gray);
+  max-width: 560px; line-height: 1.7;
+}
+
+/* ── SOBRE ── */
+#sobre { background: var(--light); }
+.sobre-grid {
+  display: grid; grid-template-columns: 1fr 1.4fr; gap: 72px;
+  align-items: center;
+}
+.sobre-avatar {
+  position: relative;
+}
+.avatar-frame {
+  width: 100%; padding-top: 110%; position: relative;
+  background: linear-gradient(135deg, var(--sun), var(--green));
+  border-radius: 28px; overflow: hidden;
+}
+.avatar-placeholder {
+  position: absolute; inset: 4px; background: linear-gradient(160deg, #1a2530, #0d1117);
+  border-radius: 24px;
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 16px;
+}
+.avatar-initials {
+  font-family: var(--font-display);
+  font-size: 72px; font-weight: 900;
+  background: linear-gradient(135deg, var(--sun), var(--green-light));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.avatar-label { color: #9CA3AF; font-size: 14px; font-weight: 500; letter-spacing: 2px; }
+.avatar-cert {
+  position: absolute; bottom: -16px; right: -16px;
+  background: white; border-radius: 16px; padding: 14px 18px;
+  box-shadow: var(--shadow);
+  display: flex; align-items: center; gap: 10px;
+}
+.cert-num { font-family: var(--font-display); font-size: 22px; font-weight: 900; color: var(--green); }
+.cert-txt { font-size: 11px; color: var(--gray); line-height: 1.3; }
+
+.sobre-content { padding-top: 8px; }
+.sobre-list { list-style: none; margin: 28px 0; display: flex; flex-direction: column; gap: 16px; }
+.sobre-list li {
+  display: flex; align-items: flex-start; gap: 14px;
+  font-size: 16px; color: var(--dark3);
+}
+.sobre-list li .icon {
+  flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px;
+  background: linear-gradient(135deg, rgba(245,166,35,0.15), rgba(26,122,74,0.15));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.sobre-list li strong { display: block; font-weight: 600; color: var(--dark); margin-bottom: 2px; }
+.sobre-list li span { font-size: 14px; color: var(--gray); }
+
+/* ── GD ── */
+#gd { background: white; }
+.gd-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  margin-top: 56px;
+}
+.gd-card {
+  border: 1px solid rgba(0,0,0,0.08); border-radius: 20px;
+  padding: 36px 28px; background: white;
+  transition: all .3s; cursor: default;
+  position: relative; overflow: hidden;
+}
+.gd-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--sun), var(--green));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .3s;
+}
+.gd-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: transparent; }
+.gd-card:hover::before { transform: scaleX(1); }
+.gd-icon { font-size: 42px; margin-bottom: 20px; }
+.gd-card h3 { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 10px; color: var(--dark); }
+.gd-card p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
+/* ── CUNALI ── */
+#cunali {
+  background: linear-gradient(135deg, #0D1117 0%, #0F2318 100%);
+  position: relative; overflow: hidden;
+}
+#cunali::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(245,166,35,0.06) 0%, transparent 70%);
+}
+.cunali-inner { position: relative; z-index: 2; }
+#cunali .section-title { color: white; }
+#cunali .section-sub { color: #9CA3AF; }
+#cunali .section-tag { background: rgba(245,166,35,0.15); }
+
+.cunali-grid {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 72px;
+  align-items: center; margin-top: 56px;
+}
+.cunali-steps { display: flex; flex-direction: column; gap: 0; }
+.cunali-step {
+  display: flex; gap: 20px; padding: 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.cunali-step:last-child { border: none; }
+.step-num {
+  flex-shrink: 0;
+  width: 44px; height: 44px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--sun), #E8940A);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 1.1rem; font-weight: 900; color: white;
+}
+.step-content h4 { font-size: 16px; font-weight: 600; color: white; margin-bottom: 6px; }
+.step-content p { font-size: 14px; color: #9CA3AF; line-height: 1.6; }
+
+.cunali-highlight {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 24px; padding: 40px;
+  position: relative; overflow: hidden;
+}
+.cunali-highlight::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--sun), var(--green-light));
+}
+.highlight-logo {
+  font-family: var(--font-display);
+  font-size: 1.8rem; font-weight: 900;
+  background: linear-gradient(135deg, var(--sun), var(--green-light));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+.highlight-tagline { font-size: 13px; color: #9CA3AF; margin-bottom: 28px; letter-spacing: .5px; }
+.highlight-benefits { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+.hb { display: flex; align-items: center; gap: 12px; font-size: 15px; color: #E5E7EB; }
+.hb .check {
+  width: 26px; height: 26px; border-radius: 8px;
+  background: rgba(45,179,112,0.2); border: 1px solid rgba(45,179,112,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; flex-shrink: 0;
+}
+.btn-cunali {
+  width: 100%; padding: 16px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--sun), #E8940A);
+  color: white; font-family: var(--font-body); font-size: 15px; font-weight: 700;
+  text-align: center; text-decoration: none;
+  display: block; transition: all .25s;
+  box-shadow: 0 6px 24px rgba(245,166,35,0.3);
+}
+.btn-cunali:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(245,166,35,0.45); }
+
+/* ── BENEFÍCIOS ── */
+#beneficios { background: var(--light); }
+.benefits-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  margin-top: 56px;
+}
+.benefit-card {
+  background: white; border-radius: 20px; padding: 36px 24px;
+  text-align: center; box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  transition: all .3s;
+}
+.benefit-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+.benefit-icon { font-size: 48px; margin-bottom: 16px; }
+.benefit-num {
+  font-family: var(--font-display); font-size: 2.2rem; font-weight: 900;
+  background: linear-gradient(135deg, var(--sun), var(--green));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.benefit-label { font-size: 13px; color: var(--gray); margin-top: 6px; font-weight: 500; }
+
+/* ── FACEBOOK / VÍDEO ── */
+#midia { background: white; }
+.midia-inner {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+}
+.fb-embed {
+  margin-top: 40px; width: 100%; max-width: 680px;
+  background: #F0F2F5; border-radius: 20px; padding: 40px;
+  border: 1px solid #E4E6EB;
+}
+.fb-icon { font-size: 56px; margin-bottom: 16px; }
+.fb-text { font-size: 16px; color: var(--gray); margin-bottom: 24px; line-height: 1.7; }
+.btn-facebook {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #1877F2; color: white;
+  padding: 14px 28px; border-radius: 12px;
+  text-decoration: none; font-weight: 600; font-size: 15px;
+  transition: all .25s;
+}
+.btn-facebook:hover { background: #0d6ed1; transform: translateY(-2px); }
+
+/* ── DEPOIMENTOS ── */
+#depoimentos { background: var(--light); }
+.dep-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  margin-top: 56px;
+}
+.dep-card {
+  background: white; border-radius: 20px; padding: 32px 28px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  transition: all .3s;
+}
+.dep-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.dep-stars { color: var(--sun); font-size: 18px; margin-bottom: 16px; letter-spacing: 2px; }
+.dep-text { font-size: 15px; color: var(--dark3); line-height: 1.7; margin-bottom: 24px; font-style: italic; }
+.dep-author { display: flex; align-items: center; gap: 12px; }
+.dep-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--sun), var(--green));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 16px; font-weight: 700; color: white;
+}
+.dep-info strong { font-size: 14px; font-weight: 600; display: block; }
+.dep-info span { font-size: 12px; color: var(--gray); }
+
+/* ── CONTATO ── */
+#contato {
+  background: linear-gradient(135deg, #0D1117, #0F2318);
+  position: relative; overflow: hidden;
+}
+#contato::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 60% at 80% 50%, rgba(26,122,74,0.1) 0%, transparent 60%);
+}
+.contato-inner { position: relative; z-index: 2; }
+#contato .section-title { color: white; }
+#contato .section-sub { color: #9CA3AF; }
+.contato-grid {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px;
+  align-items: start; margin-top: 56px;
+}
+.contato-info { display: flex; flex-direction: column; gap: 24px; }
+.ci {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 20px; border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.ci-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: linear-gradient(135deg, rgba(245,166,35,.2), rgba(26,122,74,.2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.ci-text strong { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; color: #9CA3AF; display: block; margin-bottom: 4px; }
+.ci-text a, .ci-text span { color: white; font-size: 15px; text-decoration: none; font-weight: 500; }
+.ci-text a:hover { color: var(--sun); }
+
+.contato-form {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 24px; padding: 40px;
+  position: relative;
+}
+.contato-form::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px; border-radius: 24px 24px 0 0;
+  background: linear-gradient(90deg, var(--sun), var(--green-light));
+}
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group.full { grid-column: 1/-1; }
+.form-group label { font-size: 13px; font-weight: 600; color: #9CA3AF; text-transform: uppercase; letter-spacing: .5px; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: white; font-family: var(--font-body); font-size: 15px;
+  outline: none; width: 100%;
+  transition: border-color .2s;
+  -webkit-appearance: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: #6B7280; }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--sun); }
+.form-group select option { background: #1F2937; color: white; }
+.form-group textarea { resize: vertical; min-height: 110px; }
+.btn-submit {
+  width: 100%; margin-top: 8px; padding: 17px;
+  background: linear-gradient(135deg, var(--sun), #E8940A);
+  color: white; font-family: var(--font-body); font-size: 16px; font-weight: 700;
+  border: none; border-radius: 12px; cursor: pointer;
+  transition: all .25s; box-shadow: 0 6px 24px rgba(245,166,35,0.3);
+}
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(245,166,35,0.45); }
+.form-success {
+  display: none; text-align: center; padding: 40px 20px;
+}
+.form-success .check { font-size: 64px; margin-bottom: 16px; }
+.form-success h3 { font-family: var(--font-display); font-size: 1.6rem; color: white; margin-bottom: 12px; }
+.form-success p { color: #9CA3AF; font-size: 15px; }
+
+/* ── FOOTER ── */
+footer {
+  background: #080D12; padding: 60px 24px 32px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px;
+  padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.footer-brand .logo-name { color: white; font-size: 22px; }
+.footer-brand p { color: #6B7280; font-size: 14px; line-height: 1.7; margin-top: 12px; }
+.footer-social { display: flex; gap: 10px; margin-top: 20px; }
+.footer-social a {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: rgba(255,255,255,0.07);
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; transition: background .2s;
+}
+.footer-social a:hover { background: var(--sun); }
+.footer-col h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: #9CA3AF; margin-bottom: 16px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col li a { color: #6B7280; text-decoration: none; font-size: 14px; transition: color .2s; }
+.footer-col li a:hover { color: var(--sun); }
+.footer-bottom {
+  padding-top: 32px; display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.footer-bottom p { color: #4B5563; font-size: 13px; }
+.footer-bottom span { color: #6B7280; font-size: 13px; }
+
+/* ── FLOATING WhatsApp ── */
+.wpp-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+  width: 58px; height: 58px; border-radius: 50%;
+  background: #25D366;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+  transition: transform .25s, box-shadow .25s;
+  animation: wpp-pulse 2.5s ease-in-out infinite;
+}
+.wpp-float:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(37,211,102,0.6); animation: none; }
+@keyframes wpp-pulse {
+  0%,100% { box-shadow: 0 6px 24px rgba(37,211,102,0.45); }
+  50% { box-shadow: 0 6px 24px rgba(37,211,102,0.7), 0 0 0 8px rgba(37,211,102,0.15); }
+}
+
+/* ── BACK TO TOP ── */
+.back-top {
+  position: fixed; bottom: 100px; right: 28px; z-index: 9999;
+  width: 44px; height: 44px; border-radius: 12px;
+  background: rgba(255,255,255,0.9); border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: var(--shadow);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; opacity: 0; transform: translateY(10px);
+  transition: all .3s; pointer-events: none;
+}
+.back-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+.back-top:hover { background: var(--sun); border-color: var(--sun); }
+.back-top:hover svg path { stroke: white; }
+
+/* ── ANIMATIONS ── */
+.fade-up {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
+  .hero-btns { justify-content: center; }
+  .hero-visual { display: none; }
+  .gd-grid { grid-template-columns: repeat(2, 1fr); }
+  .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  .cunali-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .topbar { font-size: 12px; }
+  .topbar-left { flex-wrap: wrap; gap: 8px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .gd-grid { grid-template-columns: 1fr; }
+  .sobre-grid { grid-template-columns: 1fr; }
+  .benefits-grid { grid-template-columns: 1fr 1fr; }
+  .dep-grid { grid-template-columns: 1fr; }
+  .contato-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .hero-stats { grid-template-columns: 1fr; gap: 12px; }
+  section { padding: 64px 20px; }
+}
+
+@media (max-width: 480px) {
+  .benefits-grid { grid-template-columns: 1fr; }
+  .hero-btns { flex-direction: column; align-items: center; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="mailto:mauriciovieira.7223@gmail.com">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      mauriciovieira.7223@gmail.com
+    </a>
+    <span style="color:#374151">|</span>
+    <a href="tel:+5519998072973">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 12 19.79 19.79 0 0 1 1.64 3.32 2 2 0 0 1 3.61 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      (19) 99807-2973
+    </a>
+  </div>
+  <div class="topbar-right">
+    <!-- WhatsApp -->
+    <a href="http://wa.me/5519997808689" target="_blank" rel="noopener" title="WhatsApp">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    </a>
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/marcellsouza" target="_blank" rel="noopener" title="LinkedIn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="logo">
+      <div class="logo-icon">☀️</div>
+      <div class="logo-text">
+        <div class="logo-name">Maurício Vieira</div>
+        <div class="logo-sub">Geração Distribuída</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#gd">Geração Distribuída</a></li>
+      <li><a href="#cunali">Cunali Energia</a></li>
+      <li><a href="#beneficios">Benefícios</a></li>
+      <li><a href="#contato" class="nav-cta">Falar Agora</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#sobre" onclick="closeMenu()">Sobre</a>
+    <a href="#gd" onclick="closeMenu()">Geração Distribuída</a>
+    <a href="#cunali" onclick="closeMenu()">Cunali Energia</a>
+    <a href="#beneficios" onclick="closeMenu()">Benefícios</a>
+    <a href="#midia" onclick="closeMenu()">Mídia</a>
+    <a href="#contato" onclick="closeMenu()">Contato</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-sun"></div>
+  <div class="rays">
+    <div class="ray" style="transform:rotate(0deg)"></div>
+    <div class="ray" style="transform:rotate(30deg)"></div>
+    <div class="ray" style="transform:rotate(60deg)"></div>
+    <div class="ray" style="transform:rotate(90deg)"></div>
+    <div class="ray" style="transform:rotate(120deg)"></div>
+    <div class="ray" style="transform:rotate(150deg)"></div>
+    <div class="ray" style="transform:rotate(180deg)"></div>
+    <div class="ray" style="transform:rotate(210deg)"></div>
+    <div class="ray" style="transform:rotate(240deg)"></div>
+    <div class="ray" style="transform:rotate(270deg)"></div>
+    <div class="ray" style="transform:rotate(300deg)"></div>
+    <div class="ray" style="transform:rotate(330deg)"></div>
+  </div>
+  <div class="hero-inner container">
+    <div>
+      <div class="hero-badge">Cunali Energia · Geração Distribuída</div>
+      <h1>Economize na sua conta de energia com soluções <span>inteligentes</span> e sustentáveis</h1>
+      <p class="hero-sub">Conheça as oportunidades oferecidas pela Cunali Energia e descubra como reduzir seus custos sem investimentos complexos ou obras na sua propriedade.</p>
+      <div class="hero-btns">
+        <a href="http://wa.me/5519998072973" target="_blank" class="btn btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          Falar no WhatsApp
+        </a>
+        <a href="#contato" class="btn btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Solicitar Análise Gratuita
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num" data-target="20">0%</div>
+          <div class="stat-label">Economia na conta</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-target="0" data-suffix=" obras">Sem</div>
+          <div class="stat-label">Sem obras ou instalação</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-target="100" data-suffix="%">0%</div>
+          <div class="stat-label">Energia limpa e renovável</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="solar-card">
+        <div class="float-badge">✦ Cunali Energia</div>
+        <span class="solar-icon">☀️</span>
+        <h3>Geração Distribuída</h3>
+        <p>Energia solar compartilhada que chega diretamente na sua fatura, sem burocracia e sem investimento inicial.</p>
+        <div class="savings-badge">✅ Até 20% de desconto garantido</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-avatar fade-up">
+        <div class="avatar-frame">
+          <div class="avatar-placeholder">
+            <div class="avatar-initials">MV</div>
+            <div class="avatar-label">Maurício Vieira</div>
+          </div>
+        </div>
+        <div class="avatar-cert">
+          <div class="cert-num">+5</div>
+          <div class="cert-txt">Anos no setor<br>de energia</div>
+        </div>
+      </div>
+      <div class="sobre-content fade-up">
+        <div class="section-tag">Sobre</div>
+        <h2 class="section-title">Consultor especializado em <span>energia inteligente</span></h2>
+        <p class="section-sub">Maurício Vieira atua como consultor especializado em Geração Distribuída e parceiro oficial da Cunali Energia, ajudando residências e empresas a reduzirem custos com energia elétrica de forma simples, segura e sustentável.</p>
+        <ul class="sobre-list">
+          <li>
+            <div class="icon">🎯</div>
+            <div>
+              <strong>Atendimento Personalizado</strong>
+              <span>Análise individual de cada caso, com soluções adequadas ao perfil do cliente.</span>
+            </div>
+          </li>
+          <li>
+            <div class="icon">🌿</div>
+            <div>
+              <strong>Foco em Sustentabilidade</strong>
+              <span>Energia limpa e renovável que contribui para um futuro mais verde.</span>
+            </div>
+          </li>
+          <li>
+            <div class="icon">💰</div>
+            <div>
+              <strong>Economia Real e Comprovada</strong>
+              <span>Redução imediata na conta de energia, sem custos ocultos ou surpresas.</span>
+            </div>
+          </li>
+          <li>
+            <div class="icon">🤝</div>
+            <div>
+              <strong>Parceiro Cunali Energia</strong>
+              <span>Representante autorizado com suporte completo ao cliente em toda a jornada.</span>
+            </div>
+          </li>
+        </ul>
+        <a href="http://wa.me/5519998072973" target="_blank" class="btn btn-primary" style="width:fit-content">
+          📱 Conversar agora
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GERAÇÃO DISTRIBUÍDA -->
+<section id="gd">
+  <div class="container">
+    <div class="fade-up" style="text-align:center">
+      <div class="section-tag" style="margin:0 auto 16px">Geração Distribuída</div>
+      <h2 class="section-title" style="max-width:600px;margin:0 auto 16px">O que é e como funciona na <span>prática</span></h2>
+      <p class="section-sub" style="margin:0 auto">A Geração Distribuída permite que você consuma energia produzida por usinas solares, sem precisar instalar nada na sua casa ou empresa.</p>
+    </div>
+    <div class="gd-grid">
+      <div class="gd-card fade-up">
+        <div class="gd-icon">🏠</div>
+        <h3>Para Residências</h3>
+        <p>Famílias que pagam mais de R$ 200/mês na conta de luz já podem se beneficiar e economizar de forma imediata.</p>
+      </div>
+      <div class="gd-card fade-up">
+        <div class="gd-icon">🏢</div>
+        <h3>Para Empresas</h3>
+        <p>Comércios, indústrias e escritórios reduzem custos operacionais e se tornam mais competitivos com energia mais barata.</p>
+      </div>
+      <div class="gd-card fade-up">
+        <div class="gd-icon">⚡</div>
+        <h3>Sem Obras</h3>
+        <p>Não é necessário instalar painéis solares. A energia vem da usina diretamente para a sua unidade consumidora.</p>
+      </div>
+      <div class="gd-card fade-up">
+        <div class="gd-icon">📄</div>
+        <h3>Crédito na Fatura</h3>
+        <p>Os créditos de energia são descontados diretamente na sua conta, de forma transparente e auditável pela distribuidora.</p>
+      </div>
+      <div class="gd-card fade-up">
+        <div class="gd-icon">🌞</div>
+        <h3>Energia Solar</h3>
+        <p>Usinas fotovoltaicas de grande porte produzem energia limpa que é injetada na rede elétrica e creditada para os assinantes.</p>
+      </div>
+      <div class="gd-card fade-up">
+        <div class="gd-icon">📈</div>
+        <h3>Economia Crescente</h3>
+        <p>Com o aumento da tarifa convencional, a economia gerada pela GD tende a crescer ao longo dos anos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUNALI ENERGIA -->
+<section id="cunali">
+  <div class="container cunali-inner">
+    <div class="fade-up">
+      <div class="section-tag">Parceiro Oficial</div>
+      <h2 class="section-title">Consórcio <span style="color:var(--sun)">Cunali Energia</span></h2>
+      <p class="section-sub">Uma das maiores plataformas de Geração Distribuída do Brasil, conectando consumidores a usinas de energia solar com total segurança e transparência.</p>
+    </div>
+    <div class="cunali-grid">
+      <div class="cunali-steps fade-up">
+        <div class="cunali-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Adesão Simples</h4>
+            <p>Você faz o cadastro com Maurício, informa seu número de instalação da distribuidora e assina o contrato de forma digital.</p>
+          </div>
+        </div>
+        <div class="cunali-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Produção da Usina</h4>
+            <p>A usina solar da Cunali produz energia limpa que é injetada diretamente na rede da distribuidora local.</p>
+          </div>
+        </div>
+        <div class="cunali-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>Créditos Aplicados</h4>
+            <p>Os créditos gerados pela sua cota na usina são aplicados automaticamente na sua conta de energia todo mês.</p>
+          </div>
+        </div>
+        <div class="cunali-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>Você Economiza</h4>
+            <p>Sua conta chega com desconto real, comprovado na fatura. Simples, transparente e sem surpresas.</p>
+          </div>
+        </div>
+      </div>
+      <div class="cunali-highlight fade-up">
+        <div class="highlight-logo">Cunali Energia</div>
+        <div class="highlight-tagline">Consórcio de Geração Distribuída</div>
+        <div class="highlight-benefits">
+          <div class="hb"><div class="check">✓</div> Até 20% de desconto na conta de luz</div>
+          <div class="hb"><div class="check">✓</div> Sem instalação de equipamentos</div>
+          <div class="hb"><div class="check">✓</div> Sem obras e sem investimento inicial</div>
+          <div class="hb"><div class="check">✓</div> Energia 100% renovável e limpa</div>
+          <div class="hb"><div class="check">✓</div> Cancelamento sem multa</div>
+          <div class="hb"><div class="check">✓</div> Contrato digital e seguro</div>
+          <div class="hb"><div class="check">✓</div> Atendimento especializado</div>
+        </div>
+        <a href="http://wa.me/5519998072973" target="_blank" class="btn-cunali">
+          ☀️ Quero Economizar Agora
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFÍCIOS -->
+<section id="beneficios">
+  <div class="container">
+    <div class="fade-up" style="text-align:center">
+      <div class="section-tag" style="margin:0 auto 16px">Por que escolher?</div>
+      <h2 class="section-title" style="max-width:600px;margin:0 auto 16px">Benefícios <span>reais</span> para você e sua família</h2>
+      <p class="section-sub" style="margin:0 auto">Números que comprovam as vantagens de aderir à Geração Distribuída com a Cunali Energia.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card fade-up">
+        <div class="benefit-icon">💡</div>
+        <div class="benefit-num" data-target="20">0%</div>
+        <div class="benefit-label">Economia na conta de energia</div>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-icon">🌱</div>
+        <div class="benefit-num" data-target="100">0%</div>
+        <div class="benefit-label">Energia limpa e renovável</div>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-icon">⚡</div>
+        <div class="benefit-num">R$0</div>
+        <div class="benefit-label">Investimento inicial necessário</div>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-icon">🔒</div>
+        <div class="benefit-num">100%</div>
+        <div class="benefit-label">Seguro e regulamentado pela ANEEL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MÍDIA / FACEBOOK -->
+<section id="midia">
+  <div class="container midia-inner fade-up">
+    <div class="section-tag" style="margin:0 auto 16px">Nas Redes</div>
+    <h2 class="section-title" style="max-width:600px;margin:0 auto 16px">Acompanhe no <span>Facebook</span></h2>
+    <p class="section-sub" style="margin:0 auto">Fique por dentro de novidades, dicas de economia e informações sobre energia solar.</p>
+    <div class="fb-embed">
+      <div class="fb-icon">📘</div>
+      <p class="fb-text">Assista ao nosso vídeo no Facebook e entenda melhor como a Geração Distribuída pode transformar a sua conta de energia.</p>
+      <a href="https://www.facebook.com/share/r/18uaRFzz2D/" target="_blank" rel="noopener" class="btn-facebook">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Ver Vídeo no Facebook
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos" style="background:var(--light)">
+  <div class="container">
+    <div class="fade-up" style="text-align:center">
+      <div class="section-tag" style="margin:0 auto 16px">Depoimentos</div>
+      <h2 class="section-title" style="max-width:600px;margin:0 auto 16px">O que dizem nossos <span>clientes</span></h2>
+      <p class="section-sub" style="margin:0 auto">Histórias reais de quem já está economizando com a Cunali Energia.</p>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-card fade-up">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Não acreditei quando vi a conta chegar com 18% de desconto no primeiro mês. O Maurício explicou tudo com clareza e o processo foi rápido!"</p>
+        <div class="dep-author">
+          <div class="dep-avatar">RS</div>
+          <div class="dep-info">
+            <strong>Roberto S.</strong>
+            <span>Cliente Residencial</span>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card fade-up">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Nossa empresa reduziu custos com energia e ainda contribuímos com o meio ambiente. Atendimento do Maurício foi excelente do começo ao fim."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">AC</div>
+          <div class="dep-info">
+            <strong>Ana C.</strong>
+            <span>Comércio Local</span>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card fade-up">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Simples, sem obras e sem complicação. Em menos de 30 dias já estava com desconto na conta. Super recomendo o serviço do Maurício!"</p>
+        <div class="dep-author">
+          <div class="dep-avatar">FM</div>
+          <div class="dep-info">
+            <strong>Felipe M.</strong>
+            <span>Condomínio Residencial</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="container contato-inner">
+    <div class="fade-up">
+      <div class="section-tag">Fale Conosco</div>
+      <h2 class="section-title">Solicite sua análise <span style="color:var(--sun)">gratuita</span></h2>
+      <p class="section-sub">Preencha o formulário ou entre em contato diretamente. Maurício retorna em até 24 horas com a análise personalizada do seu caso.</p>
+    </div>
+    <div class="contato-grid">
+      <div class="contato-info fade-up">
+        <div class="ci">
+          <div class="ci-icon">📱</div>
+          <div class="ci-text">
+            <strong>WhatsApp</strong>
+            <a href="http://wa.me/5519998072973" target="_blank">(19) 99807-2973</a>
+          </div>
+        </div>
+        <div class="ci">
+          <div class="ci-icon">📧</div>
+          <div class="ci-text">
+            <strong>E-mail</strong>
+            <a href="mailto:mauriciovieira.7223@gmail.com">mauriciovieira.7223@gmail.com</a>
+          </div>
+        </div>
+        <div class="ci">
+          <div class="ci-icon">💼</div>
+          <div class="ci-text">
+            <strong>LinkedIn</strong>
+            <a href="https://www.linkedin.com/in/marcellsouza" target="_blank">linkedin.com/in/marcellsouza</a>
+          </div>
+        </div>
+        <div class="ci">
+          <div class="ci-icon">⏰</div>
+          <div class="ci-text">
+            <strong>Horário de Atendimento</strong>
+            <span>Segunda a Sábado, 8h às 18h</span>
+          </div>
+        </div>
+        <a href="http://wa.me/5519998072973?text=Olá%20Maurício!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Geração%20Distribuída%20e%20o%20Consórcio%20Cunali%20Energia." target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;padding:16px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          Chamar no WhatsApp Agora
+        </a>
+      </div>
+      <div class="fade-up">
+        <div class="contato-form" id="contactForm">
+          <div class="form-grid" id="formContent">
+            <div class="form-group">
+              <label>Nome Completo</label>
+              <input type="text" id="f-nome" placeholder="Seu nome" required>
+            </div>
+            <div class="form-group">
+              <label>Telefone / WhatsApp</label>
+              <input type="tel" id="f-tel" placeholder="(19) 99999-9999" required>
+            </div>
+            <div class="form-group">
+              <label>Cidade</label>
+              <input type="text" id="f-cidade" placeholder="Sua cidade">
+            </div>
+            <div class="form-group">
+              <label>Tipo de Imóvel</label>
+              <select id="f-tipo">
+                <option value="">Selecione</option>
+                <option>Residência</option>
+                <option>Comércio</option>
+                <option>Empresa</option>
+                <option>Condomínio</option>
+                <option>Agronegócio</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label>Valor Médio da Conta de Energia</label>
+              <select id="f-conta">
+                <option value="">Selecione</option>
+                <option>Até R$ 300</option>
+                <option>R$ 300 a R$ 500</option>
+                <option>R$ 500 a R$ 1.000</option>
+                <option>R$ 1.000 a R$ 3.000</option>
+                <option>Acima de R$ 3.000</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label>Mensagem (Opcional)</label>
+              <textarea id="f-msg" placeholder="Escreva aqui sua dúvida ou deixe um comentário..."></textarea>
+            </div>
+          </div>
+          <button class="btn-submit" onclick="submitForm()" id="submitBtn">
+            ☀️ Quero Economizar Energia
+          </button>
+          <div class="form-success" id="formSuccess">
+            <div class="check">✅</div>
+            <h3>Mensagem Enviada!</h3>
+            <p>Maurício receberá sua solicitação e entrará em contato em breve pelo WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">☀️</div>
+          <div class="logo-text">
+            <div class="logo-name">Maurício Vieira</div>
+            <div class="logo-sub" style="color:#6B7280">Geração Distribuída</div>
+          </div>
+        </div>
+        <p>Consultor especializado em Geração Distribuída e parceiro oficial da Cunali Energia. Ajudando famílias e empresas a economizarem na conta de energia com energia limpa e renovável.</p>
+        <div class="footer-social">
+          <a href="http://wa.me/5519998072973" target="_blank" title="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#9CA3AF"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/marcellsouza" target="_blank" title="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#9CA3AF"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="mailto:mauriciovieira.7223@gmail.com" title="E-mail">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#sobre">Sobre Maurício</a></li>
+          <li><a href="#gd">Geração Distribuída</a></li>
+          <li><a href="#cunali">Cunali Energia</a></li>
+          <li><a href="#beneficios">Benefícios</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="http://wa.me/5519998072973" target="_blank">📱 (19) 99807-2973</a></li>
+          <li><a href="mailto:mauriciovieira.7223@gmail.com">📧 E-mail</a></li>
+          <li><a href="https://www.linkedin.com/in/marcellsouza" target="_blank">💼 LinkedIn</a></li>
+          <li><a href="https://www.facebook.com/share/r/18uaRFzz2D/" target="_blank">📘 Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Maurício Vieira · Consultor em Geração Distribuída</p>
+      <span>Parceiro oficial Cunali Energia · Desenvolvido com ☀️</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WhatsApp -->
+<a href="http://wa.me/5519998072973?text=Olá%20Maurício!%20Tenho%20interesse%20na%20Geração%20Distribuída%20pela%20Cunali%20Energia." target="_blank" class="wpp-float" title="Fale no WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+
+<!-- BACK TO TOP -->
+<div class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 15l-6-6-6 6" stroke="#374151" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+
+<script>
+// Mobile Menu
+function toggleMenu() {
+  const ham = document.getElementById('hamburger');
+  const menu = document.getElementById('mobileMenu');
+  ham.classList.toggle('open');
+  menu.classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// Back to top
+window.addEventListener('scroll', () => {
+  const bt = document.getElementById('backTop');
+  if (window.scrollY > 400) bt.classList.add('visible');
+  else bt.classList.remove('visible');
+});
+
+// Fade up on scroll
+const fadeEls = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.12 });
+fadeEls.forEach(el => observer.observe(el));
+
+// Counter animation
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target || '0');
+  const suffix = el.dataset.suffix || '%';
+  if (el.textContent.includes('Sem') || target === 0) return;
+  let current = 0;
+  const step = Math.ceil(target / 40);
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) { current = target; clearInterval(timer); }
+    el.textContent = current + suffix;
+  }, 30);
+}
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && e.target.dataset.target) {
+      animateCounter(e.target);
+      counterObs.unobserve(e.target);
+    }
+  });
+});
+document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
+
+// Form submit
+function submitForm() {
+  const nome = document.getElementById('f-nome').value.trim();
+  const tel = document.getElementById('f-tel').value.trim();
+  if (!nome || !tel) {
+    alert('Por favor, preencha Nome e Telefone.');
+    return;
+  }
+  const cidade = document.getElementById('f-cidade').value;
+  const tipo = document.getElementById('f-tipo').value;
+  const conta = document.getElementById('f-conta').value;
+  const msg = document.getElementById('f-msg').value;
+  const text = encodeURIComponent(
+    `Olá Maurício! Vim pelo site e quero saber mais sobre Geração Distribuída.\n\n` +
+    `*Nome:* ${nome}\n*Telefone:* ${tel}` +
+    (cidade ? `\n*Cidade:* ${cidade}` : '') +
+    (tipo ? `\n*Imóvel:* ${tipo}` : '') +
+    (conta ? `\n*Conta de energia:* ${conta}` : '') +
+    (msg ? `\n\n*Mensagem:* ${msg}` : '')
+  );
+  window.open(`http://wa.me/5519998072973?text=${text}`, '_blank');
+  document.getElementById('formContent').style.display = 'none';
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+
+// Phone mask
+const telInput = document.getElementById('f-tel');
+if (telInput) {
+  telInput.addEventListener('input', function() {
+    let v = this.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 6) v = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+    else if (v.length > 2) v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+    this.value = v;
+  });
+}
+</script>
+</body>
+</html>
